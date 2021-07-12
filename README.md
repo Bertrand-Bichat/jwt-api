@@ -1,24 +1,11 @@
-# README
+# Create new user
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+curl -XPOST -H "Content-Type: application/json" -d '{ "user": { "username": "YOUR_USERNAME", "password": "YOUR_PASSWORD", "age": YOUR_AGE } }' http://localhost:3000/users
 
-Things you may want to cover:
+# Login existing user
 
-* Ruby version
+curl -XPOST -H "Content-Type: application/json" -d '{ "user": { "username": "YOUR_USERNAME", "password": "YOUR_PASSWORD" } }' http://localhost:3000/login
 
-* System dependencies
+# Test if you are login with the 'auto_login'
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+curl -XGET -H "Content-Type: application/json" -H "Authorization: bearer YOUR_TOKEN" http://localhost:3000/auto_login

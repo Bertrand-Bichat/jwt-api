@@ -14,18 +14,18 @@ class UsersController < ApplicationController
 
   # LOGGING IN
   def login
-    @user = User.find_by(username: params[:username])
+    @user = User.find_by(username: user_params[:username])
 
-    if @user && @user.authenticate(params[:password])
+    if @user && @user.authenticate(user_params[:password])
       token = encode_token({user_id: @user.id})
       render json: {user: @user, token: token}
     else
-      render json: {error: "Invalid username or password"}
+      render json: {error: "Invalid username or password", user: @user}
     end
   end
 
   def auto_login
-    render json: @user
+    render json: { user: @user }
   end
 
   private
