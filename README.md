@@ -1,5 +1,6 @@
 # Building and running on localhost
 
+```bash
 git clone git@github.com:Bertrand-Bichat/jwt-api.git
 cd jwt-api
 bundle install
@@ -7,6 +8,7 @@ yarn install
 rails db:create db:migrate db:seed
 rails s
 http://localhost:3000/
+```
 
 # Test repo
 
